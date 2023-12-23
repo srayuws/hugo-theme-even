@@ -38,6 +38,7 @@
   {{- end }}
 
   <span class="copyright-year">
+
     {{- $current := now.Format "2006" }}
     &copy; 
     {{ if ne .Site.Params.since $current -}}
@@ -46,5 +47,13 @@
     {{- $current -}}
     <span class="heart"><i class="iconfont icon-heart"></i></span><!--
     --><span>{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
+  </span>
+  <span class="copyright-year">
+    <span xmlns:cc="http://creativecommons.org/ns#" ><a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></span>
+    {{ if .Site.Params.goatcounter.enable -}}
+      {{- $account := .Site.Params.goatcounter.account }}
+      |
+      <span><a href="https://{{ $account }}.goatcounter.com/">Site Analytics</a></span>
+    {{- end }}
   </span>
 </div>
